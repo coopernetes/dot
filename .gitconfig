@@ -1,0 +1,13 @@
+[user]
+	email = thomascooperca@gmail.com
+	name = Thomas Cooper
+[branch.pull.core]
+	autocrlf = input
+	eol = lf
+[pull]
+	rebase = true
+[checkout]
+	defaultRemote = origin
+[init]
+	defaultBranch = main
+

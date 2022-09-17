@@ -1,19 +1,27 @@
-" When started as "evim", evim.vim will already have done these settings, bail
-" out.
-if v:progname =~? "evim"
-  finish
-endif
-
 " Get the defaults that most users want.
 source $VIMRUNTIME/defaults.vim
+
+if !isdirectory($HOME."/.vim")
+  call mkdir($HOME."/.vim", "", 0770)
+endif
+
 
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
 else
+  let undo_path=$HOME."/.vim/backups"
+  if !isdirectory($HOME."/.vim/backups")
+    call mkdir($HOME."/.vim/backups", "", 0770)
+  endif
+  set backupdir=$HOME/.vim/backups/
   set backup		" keep a backup file (restore to previous version)
   if has('persistent_undo')
-    set undofile	" keep an undo file (undo changes after closing)
-    set undodir=$HOME/.vim/vimundo
+    let undo_path=$HOME."/.vim/vimundo"
+    if !isdirectory($HOME."/.vim/vimundo")
+      call mkdir($HOME."/.vim/vimundo", "", 0770)
+    endif
+    set undodir=$HOME/.vim/vimundo,/tmp//
+    set undofile " keep an undo file (undo changes after closing)
   endif
 endif
 

@@ -13,6 +13,7 @@ else
   set backup		" keep a backup file (restore to previous version)
   if has('persistent_undo')
     set undofile	" keep an undo file (undo changes after closing)
+    set undodir=$HOME/.vim/vimundo
   endif
 endif
 

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+ln -sf "$PWD/.ansible.cfg" "$HOME/.ansible.cfg"
+ln -sf "$PWD/.bashrc" "$HOME/.bashrc"
+ln -sf "$PWD/.profile" "$HOME/.profile"
+ln -sf "$PWD/.profile" "$HOME/.bash_profile"
+ln -sf "$PWD/.vimrc" "$HOME/.vimrc"
+

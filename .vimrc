@@ -53,5 +53,4 @@ set showmode
 set wildmenu
 set incsearch
 set number
-set relativenumber
 

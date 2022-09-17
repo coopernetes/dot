@@ -1,3 +1,8 @@
+# Debian defaults (provided .bashrc)
+# Some of these settings have been tweaked but left unmodified as much as
+# possible.
+# ----------------------------------
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -83,16 +88,42 @@ if ! shopt -oq posix; then
   fi
 fi
 
-declare -a _paths
-_paths=("/home/tom/oss/apache-maven-3.8.6/bin" \
-	"/usr/local/go/bin" \
-	"/home/tom/go/bin")
+# -----------------------
+# Start of customizations
+# -----------------------
+
+# Functions
+function create_dir() {
+  _dir="$1"
+  if [[ ! -z "$_dir" && ! -f "$_dir" ]]; then
+    mkdir -p "$_dir"
+  fi
+}
 
 
-for p in "${_paths[@]}"; do 
-	PATH="$PATH:$p"
+# Environment variables
+export EDITOR=vi
+export VISUAL=vi
+export REPOS="$HOME/repos"
+export GHREPOS="$HOME/repos/github.com"
+export GLREPOS="$HOME/repos/gitlab.com"
+export GOPATH="$HOME/.local/share/go"
+export GOBIN="$HOME/.local/bin"
+
+# PATH
+declare -a _prepend_paths
+_prepend_paths=("$GOPATH" \
+	"$GOBIN" \
+	"/usr/local/go/bin")
+
+for p in "${_prepend_paths[@]}"; do
+  PATH="$p:$PATH"
 done
 export PATH
 
-export EDITOR=vim
+# Home dirs
+create_dir "$GOPATH"
+create_dir "$GOBIN"
+create_dir "$GHREPOS"
+create_dir "$GLREPOS"
 

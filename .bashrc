@@ -94,3 +94,5 @@ for p in "${_paths[@]}"; do
 done
 export PATH
 
+export EDITOR=vim
+

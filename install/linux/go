@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eux
 set -o pipefail
-GO_VERSION="${GO_VERSION:-"1.19.1"}"
+VERSION="${VERSION:-"1.19.1"}"
 
 echo "Cleaning up existing Go install..."
 if [[ "$UID" -ne 0 || "$EUID" -ne 0 ]]; then 
@@ -10,7 +10,7 @@ else
   rm -rf /usr/local/go
 fi
 
-_dl="https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz"
+_dl="https://go.dev/dl/go${VERSION}.linux-amd64.tar.gz"
 echo "Downloading ${_dl}"
 if [[ -x "$(command -v curl)" ]]; then
   curl -fsSLO ${_dl} 
@@ -20,12 +20,12 @@ fi
 
 echo "Installing go to /usr/local..."
 if [[ "$UID" -ne 0 || "$EUID" -ne 0 ]]; then 
-  sudo tar -C /usr/local -xzf go${GO_VERSION}.linux-amd64.tar.gz
+  sudo tar -C /usr/local -xzf go${VERSION}.linux-amd64.tar.gz
 else
-  tar -C /usr/local -xzf go${GO_VERSION}.linux-amd64.tar.gz
+  tar -C /usr/local -xzf go${VERSION}.linux-amd64.tar.gz
 fi
 
 go version
 
-rm -f go${GO_VERSION}.linux-amd64.tar.gz
+rm -f go${VERSION}.linux-amd64.tar.gz
 

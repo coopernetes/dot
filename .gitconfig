@@ -6,6 +6,9 @@
 	eol = lf
 [pull]
 	rebase = true
+[push]
+	default = current
+	autoSetupRemote = true 
 [checkout]
 	defaultRemote = origin
 [init]

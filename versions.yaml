@@ -1,0 +1,7 @@
+go: 1.19.1
+gh: 2.15.0
+minikube: v1.27.0 # or use latest
+kind: v0.15.0
+terraform: 1.2.9
+ansible: 2.13
+

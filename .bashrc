@@ -127,3 +127,7 @@ create_dir "$GOBIN"
 create_dir "$GHREPOS"
 create_dir "$GLREPOS"
 
+if [ -d "$GHREPOS/note-cmd" ]; then
+  . "$GHREPOS/note-cmd/new-note.sh"
+fi
+

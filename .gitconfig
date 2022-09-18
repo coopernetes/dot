@@ -10,4 +10,6 @@
 	defaultRemote = origin
 [init]
 	defaultBranch = main
+[include]
+	path = .config/git/gpg
 

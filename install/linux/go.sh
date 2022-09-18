@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
-set -eux
+set -eu
 set -o pipefail
-VERSION="${VERSION:-"1.19.1"}"
 
+[[ "$UID" -ne 0 || "$EUID" -ne 0 ]] && echo "Forgot to run as root!" > 2; echo "sudo $0"; exit 1
+
+VERSION="${VERSION:-"1.19.1"}"
 echo "Cleaning up existing Go install..."
-if [[ "$UID" -ne 0 || "$EUID" -ne 0 ]]; then 
-  sudo rm -rf /usr/local/go
-else
-  rm -rf /usr/local/go
-fi
+rm -rf /usr/local/go
 
 _dl="https://go.dev/dl/go${VERSION}.linux-amd64.tar.gz"
 echo "Downloading ${_dl}"
@@ -19,11 +17,7 @@ else
 fi
 
 echo "Installing go to /usr/local..."
-if [[ "$UID" -ne 0 || "$EUID" -ne 0 ]]; then 
-  sudo tar -C /usr/local -xzf go${VERSION}.linux-amd64.tar.gz
-else
-  tar -C /usr/local -xzf go${VERSION}.linux-amd64.tar.gz
-fi
+tar -C /usr/local -xzf go${VERSION}.linux-amd64.tar.gz
 
 go version
 

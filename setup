@@ -8,6 +8,11 @@ ln -sf "$PWD/.vimrc" "$HOME/.vimrc"
 ln -sf "$PWD/.aliases" "$HOME/.bash_aliases"
 ln -sf "$PWD/.gitconfig" "$HOME/.gitconfig"
 
+# Per-machine gitconfig (GPG)
+if [ -d "$HOME/.config/git" ]; then
+  ln -sf "$PWD/git/$(hostname)-gpg" "$HOME/.config/git/gpg"
+fi
+
 # Should I setup these up in all systems or only when these things are
 # installed? Need a quick install setup too
 #ln -sf "$PWD/.ansible.cfg" "$HOME/.ansible.cfg"

@@ -100,7 +100,6 @@ function create_dir() {
   fi
 }
 
-
 # Environment variables
 export EDITOR=vi
 export VISUAL=vi
@@ -126,6 +125,7 @@ create_dir "$GOPATH"
 create_dir "$GOBIN"
 create_dir "$GHREPOS"
 create_dir "$GLREPOS"
+create_dir "$HOME/.config/git"
 
 if [ -d "$GHREPOS/note-cmd" ]; then
   . "$GHREPOS/note-cmd/new-note.sh"

@@ -10,16 +10,12 @@ rm -rf /usr/local/go
 
 _dl="https://go.dev/dl/go${VERSION}.linux-amd64.tar.gz"
 echo "Downloading ${_dl}"
-if [[ -x "$(command -v curl)" ]]; then
-  curl -fsSLO ${_dl} 
-else
-  wget -q ${_dl} 
-fi
+curl -fsSLO ${_dl}
 
 echo "Installing go to /usr/local..."
 tar -C /usr/local -xzf go${VERSION}.linux-amd64.tar.gz
 
-go version
+/usr/local/go/bin/go version
 
 rm -f go${VERSION}.linux-amd64.tar.gz
 

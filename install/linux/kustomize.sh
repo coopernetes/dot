@@ -8,5 +8,5 @@
 # https://kubectl.docs.kubernetes.io/installation/kustomize/source/
 # go install sigs.k8s.io/kustomize/kustomize/v4@latest
 
-[[ "$UID" -ne 0 || "$EUID" -ne 0 ]] && echo "Forgot to run as root!"; echo "sudo $0"; exit 1
+[[ "$UID" -eq 0 || "$EUID" -eq 0 ]] && true || (echo "Forgot to run as root!"; echo "sudo $0"; exit 1)
 

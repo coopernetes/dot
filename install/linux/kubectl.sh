@@ -2,7 +2,7 @@
 set -e
 set -o pipefail
 
-[[ "$UID" -ne 0 || "$EUID" -ne 0 ]] && echo "Forgot to run as root!" > 2; echo "sudo $0"; exit 1
+[[ "$UID" -ne 0 || "$EUID" -ne 0 ]] && echo "Forgot to run as root!"; echo "sudo $0"; exit 1
 
 set +u
 if [[ -z "$VERSION" ]]; then

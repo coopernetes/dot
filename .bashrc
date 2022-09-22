@@ -109,6 +109,7 @@ export GLREPOS="$HOME/repos/gitlab.com"
 export GOPATH="$HOME/.local/share/go"
 export GOBIN="$HOME/.local/bin"
 export GPG_TTY=$(tty)
+export NOTES="$GHREPOS/notes"
 
 # PATH
 declare -a _prepend_paths

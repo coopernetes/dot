@@ -54,5 +54,14 @@ set wildmenu
 set incsearch
 set number
 set smarttab
-set shiftwidth=2
+set encoding=utf-8
+
+call plug#begin()
+Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'roxma/nvim-yarp', { 'do': 'pip install -r requirements.txt' }
+Plug 'Shougo/deoplete.nvim'
+call plug#end()
+
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 

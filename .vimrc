@@ -48,6 +48,21 @@ if has('syntax') && has('eval')
   packadd! matchit
 endif
 
+call plug#begin('~/.vim/plugged')
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+call plug#end()
+
+call deoplete#custom#option('omni_patterns', {
+\ 'go': '[^. *\t]\.\w*',
+\})
+
 set ruler
 set showmode
 set wildmenu
@@ -55,13 +70,4 @@ set incsearch
 set number
 set smarttab
 set encoding=utf-8
-
-call plug#begin()
-Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'roxma/nvim-yarp', { 'do': 'pip install -r requirements.txt' }
-Plug 'Shougo/deoplete.nvim'
-call plug#end()
-
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 

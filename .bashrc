@@ -134,3 +134,7 @@ if [ -d "$GHREPOS/note-cmd" ]; then
   . "$GHREPOS/note-cmd/new-note.sh"
 fi
 
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

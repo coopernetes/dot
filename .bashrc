@@ -115,7 +115,8 @@ export NOTES="$GHREPOS/notes"
 declare -a _prepend_paths
 _prepend_paths=("$GOPATH" \
 	"$GOBIN" \
-	"/usr/local/go/bin")
+	"/usr/local/go/bin" \
+	"$HOME/.cargo/bin")
 
 for p in "${_prepend_paths[@]}"; do
   PATH="$p:$PATH"

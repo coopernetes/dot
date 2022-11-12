@@ -110,6 +110,7 @@ export GOPATH="$HOME/.local/share/go"
 export GOBIN="$HOME/.local/bin"
 export GPG_TTY=$(tty)
 export NOTES="$GHREPOS/notes"
+export DOCKER_HOST=unix:///run/user/1000/docker.sock
 
 # PATH
 declare -a _prepend_paths

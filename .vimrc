@@ -65,6 +65,7 @@ else
 endif
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'rust-lang/rust.vim'
+Plug 'editorconfig/editorconfig-vim'
 let g:deoplete#enable_at_startup = 1
 call plug#end()
 
